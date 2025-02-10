@@ -1,11 +1,11 @@
 from random_word import get_word
 
 
-def initialize_game(state):
+def initialize_game(state): # state is the session state( st.session_state )
     if "word" not in state:
         state.word, state.hint = get_word()
     if "clue" not in state:
-        state.clue = ["-"] * len(state.word)
+        state.clue = ["-"] * len(state.word) #  Word: ----------
     if "letters_tried" not in state:
         state.letters_tried = []
     if "letters_wrong" not in state:
@@ -31,4 +31,8 @@ def offer_hint(state, st):
             state.hint_offered = True 
             st.info(f"Hint: {state.hint}")
 
+
+def display_remaining_lives(state, st):
+    remaining_lives = 6 - state.letters_wrong
+    st.write(f"Remaining Lives: {remaining_lives}")
 

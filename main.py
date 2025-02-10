@@ -1,5 +1,5 @@
 import streamlit as st
-from hidden_pattern import initialize_game, display_game_info, offer_hint
+from hidden_pattern import initialize_game, display_game_info, offer_hint, display_remaining_lives
 from user_input import handle_guess, display_guessed_letters
 from check_input import check_game_over, reset_game
 from graphics import display_hangmen, celebration_animations
@@ -15,6 +15,7 @@ def main():
     
     with col1:
         display_game_info(st.session_state, st)
+        display_remaining_lives(st.session_state, st)
         offer_hint(st.session_state, st)
         
         if not st.session_state.game_over:

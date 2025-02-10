@@ -31,6 +31,9 @@ def main():
             
             display_guessed_letters(st.session_state, st)
             handle_guess(st.session_state, letter, st)
+        else:
+            st.session_state.letter = ""
+
 
     with col2:
         display_hangmen(st.session_state, st)

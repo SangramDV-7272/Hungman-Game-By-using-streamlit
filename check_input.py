@@ -12,8 +12,8 @@ def check_game_over(state, st):
         state.game_over = True
         st.markdown("# Congratulations")
         st.write(f"The word was: {state.word}")
-        celebration_animations()
         st.balloons()
+        celebration_animations()
 
 def reset_game(state, st):
     state.word, state.hint = get_word()

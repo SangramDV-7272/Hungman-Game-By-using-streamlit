@@ -15,13 +15,20 @@ def initialize_game(state):
     if "hint_offered" not in state:
         state.hint_offered = False
 
-def display_game_info(state, st):
+
+
+def display_game_info(state, st): # st is the streamlit object and state is the session state( st.session_state )
     st.write(f"The word has {len(state.word)} letters.")
-    st.write(f"Word: ```{' '.join(state.clue)}```")
+    st.markdown(f"### Word: ```{' '.join(state.clue)}```")  # "~" tilde key
 
 
-def offer_hint(state, st):
-    if state.letters_wrong >= 2 and not state.hint_offered:
-        if st.button("Do you want a hint?"):
-            state.hint_offered = True
+
+
+
+def offer_hint(state, st): 
+    if state.letters_wrong >= 2 and not state.hint_offered: # If the player has made 2 wrong guesses and the hint has not been offered yet
+        if st.button("Do you want a hint?"): # If the player clicks the button
+            state.hint_offered = True 
             st.info(f"Hint: {state.hint}")
+
+

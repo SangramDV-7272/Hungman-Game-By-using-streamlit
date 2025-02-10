@@ -131,8 +131,8 @@ def celebration_animations():
 
 
     hangman_display = st.empty()
-    for _ in range(8):
+    for _ in range(5):
         for frame in CELEBRATION_FRAMES:
             hangman_display.write(f"```{frame}```")
-            time.sleep(0.3)
+            time.sleep(0.2)
 
